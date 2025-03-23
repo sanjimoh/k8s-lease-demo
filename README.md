@@ -18,8 +18,9 @@ docker build -t leader-election-demo:latest .
 
 ## Running the Demo
 
-1. Apply the Kubernetes deployment:
+1. Apply the rbac and Kubernetes deployment:
 ```bash
+kubectl apply -f k8s/rbac.yaml
 kubectl apply -f k8s/deployment.yaml
 ```
 
