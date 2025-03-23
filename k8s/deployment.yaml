@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leader-election-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: leader-election-demo
+  template:
+    metadata:
+      labels:
+        app: leader-election-demo
+    spec:
+      serviceAccountName: leader-election-sa
+      containers:
+      - name: leader-election
+        image: leader-election-demo:latest
+        imagePullPolicy: Never
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "256Mi" 
