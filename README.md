@@ -11,9 +11,19 @@ This is a practical demonstration of how to use Kubernetes leases for leader ele
 
 ## Building the Application
 
-1. Build the Docker image:
+1. Create a Kind cluster:
+```bash
+kind create cluster --name leader-election-cluster
+```
+
+2. Build the Docker image:
 ```bash
 docker build -t leader-election-demo:latest .
+```
+
+3. Loading the Docker image into leader-election-cluster cluster:
+```bash
+kind load docker-image leader-election-demo:latest --name leader-election-cluster
 ```
 
 ## Running the Demo
