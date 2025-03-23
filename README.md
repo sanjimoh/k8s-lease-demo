@@ -2,6 +2,8 @@
 
 This is a practical demonstration of how to use Kubernetes leases for leader election in a distributed application. The demo shows how multiple instances of an application can coordinate to elect a leader using Kubernetes leases.
 
+Working demonstration of https://medium.com/@sanjimoh/understanding-kubernetes-leases-from-concept-to-implementation-bc423e868276
+
 ## Prerequisites
 
 - Go 1.21 or later
